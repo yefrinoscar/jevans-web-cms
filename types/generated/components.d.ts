@@ -1,5 +1,110 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksBlockCta extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_block_ctas';
+  info: {
+    displayName: 'block-cta';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    textButton: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedBanner extends Struct.ComponentSchema {
+  collectionName: 'components_shared_banners';
+  info: {
+    displayName: 'Banner';
+    icon: 'alien';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.Required;
+    link: Schema.Attribute.Component<'shared.link', false>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedBannerV2 extends Struct.ComponentSchema {
+  collectionName: 'components_shared_banner_v2s';
+  info: {
+    displayName: 'Banner-v2';
+    icon: 'cursor';
+  };
+  attributes: {
+    headingLeft: Schema.Attribute.Text & Schema.Attribute.Required;
+    headingRight: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedBenefit extends Struct.ComponentSchema {
+  collectionName: 'components_shared_benefits';
+  info: {
+    displayName: 'Benefit';
+    icon: 'shield';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    icon: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedBlockService extends Struct.ComponentSchema {
+  collectionName: 'components_shared_block_services';
+  info: {
+    displayName: 'block-service';
+    icon: 'oneWay';
+  };
+  attributes: {
+    benefits: Schema.Attribute.Component<'shared.item-check', true>;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedItemCheck extends Struct.ComponentSchema {
+  collectionName: 'components_shared_item_checks';
+  info: {
+    displayName: 'itemCheck';
+    icon: 'check';
+  };
+  attributes: {
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedKeyMetric extends Struct.ComponentSchema {
+  collectionName: 'components_shared_key_metrics';
+  info: {
+    displayName: 'KeyMetric';
+    icon: 'connector';
+  };
+  attributes: {
+    descripcion: Schema.Attribute.String;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'Link';
+    icon: 'car';
+  };
+  attributes: {
+    href: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'#'>;
+    isExternal: Schema.Attribute.Boolean;
+    label: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -35,6 +140,18 @@ export interface SharedRichText extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSectionBenefit extends Struct.ComponentSchema {
+  collectionName: 'components_shared_section_benefits';
+  info: {
+    displayName: 'Section-Benefit';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    sectionBenefits: Schema.Attribute.Component<'shared.benefit', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -65,9 +182,18 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.block-cta': BlocksBlockCta;
+      'shared.banner': SharedBanner;
+      'shared.banner-v2': SharedBannerV2;
+      'shared.benefit': SharedBenefit;
+      'shared.block-service': SharedBlockService;
+      'shared.item-check': SharedItemCheck;
+      'shared.key-metric': SharedKeyMetric;
+      'shared.link': SharedLink;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
+      'shared.section-benefit': SharedSectionBenefit;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
     }

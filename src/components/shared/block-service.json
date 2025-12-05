@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_block_services",
+  "info": {
+    "displayName": "block-service",
+    "icon": "oneWay"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "benefits": {
+      "type": "component",
+      "component": "shared.item-check",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

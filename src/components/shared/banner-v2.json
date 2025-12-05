@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_banner_v2s",
+  "info": {
+    "displayName": "Banner-v2",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "headingLeft": {
+      "type": "text",
+      "required": true
+    },
+    "headingRight": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

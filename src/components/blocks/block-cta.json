@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_blocks_block_ctas",
+  "info": {
+    "displayName": "block-cta"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "textButton": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
