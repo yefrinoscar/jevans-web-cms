@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "help_desks",
+  "info": {
+    "singularName": "help-desk",
+    "pluralName": "help-desks",
+    "displayName": "HelpDesk"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

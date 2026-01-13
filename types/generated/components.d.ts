@@ -1,5 +1,20 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksAddress extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_addresses';
+  info: {
+    displayName: 'address';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    label: Schema.Attribute.Text;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksBlockCta extends Struct.ComponentSchema {
   collectionName: 'components_blocks_block_ctas';
   info: {
@@ -10,6 +25,17 @@ export interface BlocksBlockCta extends Struct.ComponentSchema {
     href: Schema.Attribute.String & Schema.Attribute.Required;
     textButton: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlocksSchedule extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_schedules';
+  info: {
+    displayName: 'schedule';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    type: Schema.Attribute.String;
   };
 }
 
@@ -67,6 +93,18 @@ export interface SharedBlockService extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedEmail extends Struct.ComponentSchema {
+  collectionName: 'components_shared_emails';
+  info: {
+    displayName: 'email';
+  };
+  attributes: {
+    descripcion: Schema.Attribute.String;
+    email: Schema.Attribute.Email;
+    label: Schema.Attribute.String;
+  };
+}
+
 export interface SharedItemCheck extends Struct.ComponentSchema {
   collectionName: 'components_shared_item_checks';
   info: {
@@ -116,6 +154,18 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedPhones extends Struct.ComponentSchema {
+  collectionName: 'components_shared_phones';
+  info: {
+    displayName: 'phones';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    number: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -125,6 +175,18 @@ export interface SharedQuote extends Struct.ComponentSchema {
   attributes: {
     body: Schema.Attribute.Text;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedResponseTime extends Struct.ComponentSchema {
+  collectionName: 'components_shared_response_times';
+  info: {
+    displayName: 'response_time';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    priority: Schema.Attribute.Enumeration<['alta', 'media', 'baja']>;
+    time: Schema.Attribute.String;
   };
 }
 
@@ -182,16 +244,21 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.address': BlocksAddress;
       'blocks.block-cta': BlocksBlockCta;
+      'blocks.schedule': BlocksSchedule;
       'shared.banner': SharedBanner;
       'shared.banner-v2': SharedBannerV2;
       'shared.benefit': SharedBenefit;
       'shared.block-service': SharedBlockService;
+      'shared.email': SharedEmail;
       'shared.item-check': SharedItemCheck;
       'shared.key-metric': SharedKeyMetric;
       'shared.link': SharedLink;
       'shared.media': SharedMedia;
+      'shared.phones': SharedPhones;
       'shared.quote': SharedQuote;
+      'shared.response-time': SharedResponseTime;
       'shared.rich-text': SharedRichText;
       'shared.section-benefit': SharedSectionBenefit;
       'shared.seo': SharedSeo;

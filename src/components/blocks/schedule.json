@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_schedules",
+  "info": {
+    "displayName": "schedule"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
