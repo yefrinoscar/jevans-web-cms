@@ -20,7 +20,11 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "siteDescription": {
       "type": "text",
@@ -28,8 +32,29 @@
     },
     "defaultSeo": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.seo"
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "linkedin": {
+      "type": "string",
+      "required": true,
+      "regex": "^https?:\\/\\/(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}(?:\\/[^\\s]*)?$"
+    },
+    "facebook": {
+      "type": "string",
+      "required": true,
+      "regex": "^https?:\\/\\/(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}(?:\\/[^\\s]*)?$"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text",
+      "required": true
     }
   }
 }
