@@ -26,6 +26,12 @@
     },
     "description": {
       "type": "text"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::new.new",
+      "mappedBy": "category"
     }
   }
 }
