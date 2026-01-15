@@ -18,6 +18,10 @@
       "type": "uid",
       "targetField": "title"
     },
+    "short_description": {
+      "type": "text",
+      "required": true
+    },
     "content": {
       "type": "richtext"
     },
@@ -48,10 +52,6 @@
     },
     "time_lecture": {
       "type": "integer"
-    },
-    "short_description": {
-      "type": "text",
-      "required": true
     }
   }
 }
