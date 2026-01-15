@@ -11,24 +11,24 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "email": {
+    "Emails": {
       "type": "component",
-      "component": "shared.email",
-      "repeatable": true
+      "component": "shared.phones",
+      "repeatable": false
     },
     "phones": {
       "type": "component",
       "component": "shared.phones",
-      "repeatable": true
-    },
-    "schedule": {
-      "type": "component",
-      "component": "blocks.schedule",
-      "repeatable": true
+      "repeatable": false
     },
     "address": {
       "type": "component",
       "component": "blocks.address",
+      "repeatable": false
+    },
+    "schedule": {
+      "type": "component",
+      "component": "shared.phones",
       "repeatable": false
     }
   }

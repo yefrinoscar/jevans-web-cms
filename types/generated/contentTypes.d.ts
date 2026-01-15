@@ -580,16 +580,16 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.Component<'shared.email', true>;
+    Emails: Schema.Attribute.Component<'shared.phones', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::contact.contact'
     > &
       Schema.Attribute.Private;
-    phones: Schema.Attribute.Component<'shared.phones', true>;
+    phones: Schema.Attribute.Component<'shared.phones', false>;
     publishedAt: Schema.Attribute.DateTime;
-    schedule: Schema.Attribute.Component<'blocks.schedule', true>;
+    schedule: Schema.Attribute.Component<'shared.phones', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
