@@ -697,6 +697,36 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPoliticaSgiPoliticaSgi extends Struct.SingleTypeSchema {
+  collectionName: 'politica_sgis';
+  info: {
+    displayName: 'PoliticaSgi';
+    pluralName: 'politica-sgis';
+    singularName: 'politica-sgi';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    commits: Schema.Attribute.Component<'shared.value', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::politica-sgi.politica-sgi'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiServiceService extends Struct.CollectionTypeSchema {
   collectionName: 'services';
   info: {
@@ -1280,6 +1310,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::new.new': ApiNewNew;
+      'api::politica-sgi.politica-sgi': ApiPoliticaSgiPoliticaSgi;
       'api::service.service': ApiServiceService;
       'api::support-v2.support-v2': ApiSupportV2SupportV2;
       'plugin::content-releases.release': PluginContentReleasesRelease;

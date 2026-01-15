@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "politica_sgis",
+  "info": {
+    "singularName": "politica-sgi",
+    "pluralName": "politica-sgis",
+    "displayName": "PoliticaSgi"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "commits": {
+      "type": "component",
+      "component": "shared.value",
+      "repeatable": true
+    }
+  }
+}
