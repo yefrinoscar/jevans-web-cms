@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_numbers",
+  "info": {
+    "displayName": "phoneNumber"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "biginteger",
+      "required": true,
+      "default": "2323"
+    }
+  },
+  "config": {}
+}

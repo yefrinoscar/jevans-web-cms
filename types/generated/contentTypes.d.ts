@@ -633,33 +633,6 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiHelpDeskHelpDesk extends Struct.CollectionTypeSchema {
-  collectionName: 'help_desks';
-  info: {
-    displayName: 'HelpDesk';
-    pluralName: 'help-desks';
-    singularName: 'help-desk';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::help-desk.help-desk'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
@@ -758,12 +731,12 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiSupportSupport extends Struct.SingleTypeSchema {
-  collectionName: 'supports';
+export interface ApiSupportV2SupportV2 extends Struct.SingleTypeSchema {
+  collectionName: 'support_v2s';
   info: {
-    displayName: 'Support';
-    pluralName: 'supports';
-    singularName: 'support';
+    displayName: 'SupportV2';
+    pluralName: 'support-v2s';
+    singularName: 'support-v2';
   };
   options: {
     draftAndPublish: true;
@@ -772,17 +745,17 @@ export interface ApiSupportSupport extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.Component<'shared.email', true>;
+    Emails: Schema.Attribute.Component<'shared.phones', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::support.support'
+      'api::support-v2.support-v2'
     > &
       Schema.Attribute.Private;
-    phones: Schema.Attribute.Component<'shared.phones', true>;
+    Phones: Schema.Attribute.Component<'shared.phones', false>;
     publishedAt: Schema.Attribute.DateTime;
     response_time: Schema.Attribute.Component<'shared.response-time', true>;
-    schedule: Schema.Attribute.Component<'blocks.schedule', true>;
+    schedule: Schema.Attribute.Component<'shared.phones', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1305,11 +1278,10 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
       'api::global.global': ApiGlobalGlobal;
-      'api::help-desk.help-desk': ApiHelpDeskHelpDesk;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::new.new': ApiNewNew;
       'api::service.service': ApiServiceService;
-      'api::support.support': ApiSupportSupport;
+      'api::support-v2.support-v2': ApiSupportV2SupportV2;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

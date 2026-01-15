@@ -154,15 +154,26 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedNumber extends Struct.ComponentSchema {
+  collectionName: 'components_shared_numbers';
+  info: {
+    displayName: 'phoneNumber';
+  };
+  attributes: {
+    value: Schema.Attribute.BigInteger &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'2323'>;
+  };
+}
+
 export interface SharedPhones extends Struct.ComponentSchema {
   collectionName: 'components_shared_phones';
   info: {
-    displayName: 'phones';
+    displayName: 'HelpDesk';
   };
   attributes: {
     description: Schema.Attribute.String;
-    label: Schema.Attribute.String;
-    number: Schema.Attribute.String & Schema.Attribute.Required;
+    values: Schema.Attribute.Component<'shared.value', true>;
   };
 }
 
@@ -241,6 +252,16 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedValue extends Struct.ComponentSchema {
+  collectionName: 'components_shared_values';
+  info: {
+    displayName: 'value';
+  };
+  attributes: {
+    value: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -256,6 +277,7 @@ declare module '@strapi/strapi' {
       'shared.key-metric': SharedKeyMetric;
       'shared.link': SharedLink;
       'shared.media': SharedMedia;
+      'shared.number': SharedNumber;
       'shared.phones': SharedPhones;
       'shared.quote': SharedQuote;
       'shared.response-time': SharedResponseTime;
@@ -263,6 +285,7 @@ declare module '@strapi/strapi' {
       'shared.section-benefit': SharedSectionBenefit;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.value': SharedValue;
     }
   }
 }

@@ -1,18 +1,14 @@
 {
   "collectionName": "components_shared_phones",
   "info": {
-    "displayName": "phones"
+    "displayName": "HelpDesk"
   },
   "options": {},
   "attributes": {
-    "number": {
-      "type": "string",
-      "required": true,
-      "regex": "^\\+?[0-9]{1,3}[\\s-]?[0-9]{6,14}$"
-    },
-    "label": {
-      "type": "string",
-      "required": false
+    "values": {
+      "type": "component",
+      "component": "shared.value",
+      "repeatable": true
     },
     "description": {
       "type": "string"
