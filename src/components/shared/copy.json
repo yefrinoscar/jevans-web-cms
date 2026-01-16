@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_copies",
+  "info": {
+    "displayName": "copy"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

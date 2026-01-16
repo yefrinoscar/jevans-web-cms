@@ -39,6 +39,18 @@ export interface BlocksSchedule extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedAboutUs extends Struct.ComponentSchema {
+  collectionName: 'components_shared_about_uses';
+  info: {
+    displayName: 'about-us';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    keys: Schema.Attribute.Component<'shared.value', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedBanner extends Struct.ComponentSchema {
   collectionName: 'components_shared_banners';
   info: {
@@ -90,6 +102,18 @@ export interface SharedBlockService extends Struct.ComponentSchema {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedCopy extends Struct.ComponentSchema {
+  collectionName: 'components_shared_copies';
+  info: {
+    displayName: 'copy';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -163,6 +187,19 @@ export interface SharedNumber extends Struct.ComponentSchema {
     value: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'2323'>;
+  };
+}
+
+export interface SharedOurValue extends Struct.ComponentSchema {
+  collectionName: 'components_shared_our_values';
+  info: {
+    displayName: 'ourValue';
+  };
+  attributes: {
+    color: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -252,6 +289,30 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTimeline extends Struct.ComponentSchema {
+  collectionName: 'components_shared_timelines';
+  info: {
+    displayName: 'timeline';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    timelineItem: Schema.Attribute.Component<'shared.timeline-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedTimelineItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_timeline_items';
+  info: {
+    displayName: 'timelineItem';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    label: Schema.Attribute.String;
+    year: Schema.Attribute.BigInteger;
+  };
+}
+
 export interface SharedValue extends Struct.ComponentSchema {
   collectionName: 'components_shared_values';
   info: {
@@ -268,16 +329,19 @@ declare module '@strapi/strapi' {
       'blocks.address': BlocksAddress;
       'blocks.block-cta': BlocksBlockCta;
       'blocks.schedule': BlocksSchedule;
+      'shared.about-us': SharedAboutUs;
       'shared.banner': SharedBanner;
       'shared.banner-v2': SharedBannerV2;
       'shared.benefit': SharedBenefit;
       'shared.block-service': SharedBlockService;
+      'shared.copy': SharedCopy;
       'shared.email': SharedEmail;
       'shared.item-check': SharedItemCheck;
       'shared.key-metric': SharedKeyMetric;
       'shared.link': SharedLink;
       'shared.media': SharedMedia;
       'shared.number': SharedNumber;
+      'shared.our-value': SharedOurValue;
       'shared.phones': SharedPhones;
       'shared.quote': SharedQuote;
       'shared.response-time': SharedResponseTime;
@@ -285,6 +349,8 @@ declare module '@strapi/strapi' {
       'shared.section-benefit': SharedSectionBenefit;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.timeline': SharedTimeline;
+      'shared.timeline-item': SharedTimelineItem;
       'shared.value': SharedValue;
     }
   }

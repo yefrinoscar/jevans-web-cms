@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_our_values",
+  "info": {
+    "displayName": "ourValue"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

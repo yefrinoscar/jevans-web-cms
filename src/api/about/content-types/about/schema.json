@@ -12,12 +12,40 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "tag": {
       "type": "string"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+    "title": {
+      "type": "text"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "aboutAs": {
+      "type": "component",
+      "component": "shared.about-us",
+      "repeatable": false
+    },
+    "ourMission": {
+      "type": "text"
+    },
+    "ourVission": {
+      "type": "text"
+    },
+    "ourValues": {
+      "type": "component",
+      "component": "shared.our-value",
+      "repeatable": true
+    },
+    "timeline": {
+      "type": "component",
+      "component": "shared.timeline",
+      "repeatable": false
+    },
+    "copy": {
+      "type": "component",
+      "component": "shared.copy",
+      "repeatable": true
     }
   }
 }
