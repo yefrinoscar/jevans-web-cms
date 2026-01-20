@@ -221,8 +221,9 @@ export interface SharedQuote extends Struct.ComponentSchema {
     icon: 'indent';
   };
   attributes: {
-    body: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    company: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    position: Schema.Attribute.String;
   };
 }
 
@@ -259,6 +260,18 @@ export interface SharedSectionBenefit extends Struct.ComponentSchema {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     sectionBenefits: Schema.Attribute.Component<'shared.benefit', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedSectionSuccessCase extends Struct.ComponentSchema {
+  collectionName: 'components_shared_section_success_cases';
+  info: {
+    displayName: 'section-success-case';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    values: Schema.Attribute.Component<'shared.value', true>;
   };
 }
 
@@ -319,6 +332,7 @@ export interface SharedValue extends Struct.ComponentSchema {
     displayName: 'value';
   };
   attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     value: Schema.Attribute.String;
   };
 }
@@ -347,6 +361,7 @@ declare module '@strapi/strapi' {
       'shared.response-time': SharedResponseTime;
       'shared.rich-text': SharedRichText;
       'shared.section-benefit': SharedSectionBenefit;
+      'shared.section-success-case': SharedSectionSuccessCase;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
       'shared.timeline': SharedTimeline;

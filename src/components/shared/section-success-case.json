@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_section_success_cases",
+  "info": {
+    "displayName": "section-success-case"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "values": {
+      "type": "component",
+      "component": "shared.value",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

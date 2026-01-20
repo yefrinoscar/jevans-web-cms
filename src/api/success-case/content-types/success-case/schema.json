@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "success_cases",
+  "info": {
+    "singularName": "success-case",
+    "pluralName": "success-cases",
+    "displayName": "SuccessCase"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "client": {
+      "type": "string"
+    },
+    "Industry": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "challenge": {
+      "type": "component",
+      "component": "shared.section-success-case",
+      "repeatable": false
+    },
+    "solution": {
+      "type": "component",
+      "component": "shared.section-success-case",
+      "repeatable": false
+    },
+    "quote": {
+      "type": "component",
+      "component": "shared.quote",
+      "repeatable": false
+    }
+  }
+}

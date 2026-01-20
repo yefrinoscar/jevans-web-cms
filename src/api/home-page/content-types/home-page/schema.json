@@ -30,6 +30,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service.service"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.copy",
+      "repeatable": false
     }
   }
 }
