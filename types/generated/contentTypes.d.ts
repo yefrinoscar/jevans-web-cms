@@ -443,7 +443,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
   attributes: {
     aboutAs: Schema.Attribute.Component<'shared.about-us', false>;
-    copy: Schema.Attribute.Component<'shared.copy', true>;
+    copy: Schema.Attribute.Component<'shared.copy', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

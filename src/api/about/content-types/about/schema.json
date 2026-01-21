@@ -45,7 +45,7 @@
     "copy": {
       "type": "component",
       "component": "shared.copy",
-      "repeatable": true
+      "repeatable": false
     }
   }
 }
