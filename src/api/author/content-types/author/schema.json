@@ -33,6 +33,12 @@
       "relation": "oneToMany",
       "target": "api::new.new",
       "mappedBy": "author"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event.event",
+      "mappedBy": "author"
     }
   }
 }

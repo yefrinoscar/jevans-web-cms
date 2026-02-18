@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_kpis",
+  "info": {
+    "displayName": "kpis"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "short_description": {
+      "type": "string"
+    },
+    "long_description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

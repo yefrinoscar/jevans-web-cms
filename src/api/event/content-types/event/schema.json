@@ -10,5 +10,53 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "title": {
+      "type": "text"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "events"
+    },
+    "description": {
+      "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Evento",
+        "Conferencia",
+        "Workshop"
+      ]
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "registerUrl": {
+      "type": "string",
+      "regex": "^(https?:\\/\\/)([\\w-]+\\.)+[\\w-]+(\\/[\\w\\-._~:/?#[\\]@!$&'()*+,;=]*)?$"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "place": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
 }

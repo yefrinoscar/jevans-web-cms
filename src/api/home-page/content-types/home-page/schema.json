@@ -16,6 +16,11 @@
       "component": "shared.banner",
       "repeatable": true
     },
+    "Partners": {
+      "type": "component",
+      "component": "shared.partners",
+      "repeatable": false
+    },
     "Metrics": {
       "type": "component",
       "component": "shared.key-metric",

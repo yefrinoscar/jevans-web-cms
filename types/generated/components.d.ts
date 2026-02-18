@@ -152,6 +152,18 @@ export interface SharedKeyMetric extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedKpis extends Struct.ComponentSchema {
+  collectionName: 'components_shared_kpis';
+  info: {
+    displayName: 'kpis';
+  };
+  attributes: {
+    long_description: Schema.Attribute.Text;
+    short_description: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
 export interface SharedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
@@ -199,6 +211,21 @@ export interface SharedOurValue extends Struct.ComponentSchema {
     color: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     icon: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedPartners extends Struct.ComponentSchema {
+  collectionName: 'components_shared_partners';
+  info: {
+    displayName: 'Partners';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -352,10 +379,12 @@ declare module '@strapi/strapi' {
       'shared.email': SharedEmail;
       'shared.item-check': SharedItemCheck;
       'shared.key-metric': SharedKeyMetric;
+      'shared.kpis': SharedKpis;
       'shared.link': SharedLink;
       'shared.media': SharedMedia;
       'shared.number': SharedNumber;
       'shared.our-value': SharedOurValue;
+      'shared.partners': SharedPartners;
       'shared.phones': SharedPhones;
       'shared.quote': SharedQuote;
       'shared.response-time': SharedResponseTime;

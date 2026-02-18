@@ -33,6 +33,11 @@
         "audios"
       ]
     },
+    "kpis": {
+      "type": "component",
+      "component": "shared.kpis",
+      "repeatable": true
+    },
     "challenge": {
       "type": "component",
       "component": "shared.section-success-case",
