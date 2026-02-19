@@ -16,6 +16,7 @@ COPY --from=opt /opt/app/package.json ./package.json
 COPY --from=opt /opt/app/public ./public
 # Strapi loads config from ./config/ (not dist/config/) and only accepts .js/.json
 COPY --from=opt /opt/app/dist/config ./config
+COPY --from=opt /opt/app/favicon.png ./favicon.ico
 
 EXPOSE 1337
 CMD ["npm", "run", "start"]
