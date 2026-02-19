@@ -1,7 +1,8 @@
-FROM node:20-alpine AS opt
-RUN apk add --no-cache libc6-compat
+FROM node:20-alpine AS build
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev
 WORKDIR /opt/app
-COPY package*.json ./
+COPY package.json ./
+# You might want to copy package-lock.json here later
 RUN npm install
 COPY . .
 RUN npm run build
@@ -9,18 +10,9 @@ RUN npm run build
 FROM node:20-alpine
 RUN apk add --no-cache vips-dev
 WORKDIR /opt/app
-# Copy only what is needed for production
-COPY --from=opt /opt/app/node_modules ./node_modules
-COPY --from=opt /opt/app/dist ./dist
-COPY --from=opt /opt/app/package.json ./package.json
-COPY --from=opt /opt/app/public ./public
-# Strapi loads config from ./config/ (not dist/config/) and only accepts .js/.json
-COPY --from=opt /opt/app/dist/config ./config
-COPY --from=opt /opt/app/favicon.png ./favicon.ico
-
-# Symlink admin build to where Strapi expects it
-RUN mkdir -p /opt/app/node_modules/@strapi/admin/dist/server/server \
-  && ln -s /opt/app/dist/build /opt/app/node_modules/@strapi/admin/dist/server/server/build
+COPY --from=build /opt/app/node_modules ./node_modules
+COPY --from=build /opt/app ./
+ENV PATH /opt/app/node_modules/.bin:$PATH
 
 EXPOSE 1337
 CMD ["npm", "run", "start"]
