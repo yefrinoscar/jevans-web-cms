@@ -9,6 +9,8 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
       - ./db_data:/var/lib/postgresql/data
+    networks:
+      - web
 
   strapi:
     build: .
@@ -17,20 +19,14 @@ services:
       - "1337"
     env_file: .env
     environment:
-      DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_HOST: ${DATABASE_HOST}
-      DATABASE_PORT: ${DATABASE_PORT}
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      JWT_SECRET: ${JWT_SECRET}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
-      APP_KEYS: ${APP_KEYS}
-      API_TOKEN_SALT: ${API_TOKEN_SALT}
-      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
       NODE_ENV: production
     volumes:
       - ./public/uploads:/opt/app/public/uploads
+    depends_on:
+      - strapiDB
+    networks:
+      - web
+
   caddy:
     image: caddy:latest
     restart: unless-stopped
@@ -44,7 +40,6 @@ services:
     depends_on:
       - strapi
     networks:
-      - default
       - web
 
 volumes:

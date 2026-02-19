@@ -1,36 +1,21 @@
-# path: ./Dockerfile
-
 FROM node:20-alpine AS opt
-
-# Install libraries for image processing (needed for Sharp)
-RUN apk add --no-cache libc6-compat \
-    vips-dev \
-    build-base \
-    git \
-    python3 \
-    make \
-    g++
-
+RUN apk add --no-cache libc6-compat
 WORKDIR /opt/app
-COPY package.json package-lock.json ./
-RUN npm config set fetch-retry-maxtimeout 600000 -g && npm install
-
-ENV PATH /opt/node_modules/.bin:$PATH
-
-WORKDIR /opt/app
+COPY package*.json ./
+RUN npm install
 COPY . .
 RUN npm run build
 
 FROM node:20-alpine
 RUN apk add --no-cache vips-dev
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/app
+# Copy only what is needed for production
 COPY --from=opt /opt/app/node_modules ./node_modules
 COPY --from=opt /opt/app/dist ./dist
-COPY --from=opt /opt/app/public ./public
 COPY --from=opt /opt/app/package.json ./package.json
+COPY --from=opt /opt/app/public ./public
+# Ensure config is available if needed by plugins
+COPY --from=opt /opt/app/config ./config
 
 EXPOSE 1337
-
 CMD ["npm", "run", "start"]
