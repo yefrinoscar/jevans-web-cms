@@ -28,8 +28,8 @@ jobs:
             fi
 
             cd "$APP_DIR"
-            git fetch origin main
-            git reset --hard origin/main
+            git fetch origin master
+            git reset --hard origin/master
 
             # Create .env file for Docker Compose safely
             echo "$ENV_FILE" > .env
