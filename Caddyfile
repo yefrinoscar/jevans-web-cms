@@ -1,0 +1,9 @@
+cms.jevansa.com.pe {
+    reverse_proxy strapi:1337
+}
+dashboard.jevansa.com.pe {
+    reverse_proxy frontend:3000
+}
+api.jevansa.com.pe {
+    reverse_proxy backend:8080
+}
