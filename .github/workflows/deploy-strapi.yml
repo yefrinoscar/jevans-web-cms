@@ -31,8 +31,8 @@ jobs:
             git fetch origin master
             git reset --hard origin/master
 
-            # Create .env file for Docker Compose safely
-            echo "$ENV_FILE" > .env
+            # Create .env file for Docker Compose safely (strip Windows line endings)
+            echo "$ENV_FILE" | tr -d '\r' > .env
 
             # Build and deploy
             docker compose build --no-cache
