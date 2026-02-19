@@ -1,10 +1,8 @@
 FROM node:20-alpine AS build
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev
 WORKDIR /opt/app
-COPY package.json ./
-# You might want to copy package-lock.json here later
-RUN npm install
 COPY . .
+RUN npm ci || npm install
 RUN npm run build
 
 FROM node:20-alpine
