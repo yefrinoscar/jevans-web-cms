@@ -18,5 +18,9 @@ COPY --from=opt /opt/app/public ./public
 COPY --from=opt /opt/app/dist/config ./config
 COPY --from=opt /opt/app/favicon.png ./favicon.ico
 
+# Symlink admin build to where Strapi expects it
+RUN mkdir -p /opt/app/node_modules/@strapi/admin/dist/server/server \
+  && ln -s /opt/app/dist/build /opt/app/node_modules/@strapi/admin/dist/server/server/build
+
 EXPOSE 1337
 CMD ["npm", "run", "start"]
