@@ -30,7 +30,6 @@ COPY --from=opt /opt/app/node_modules ./node_modules
 COPY --from=opt /opt/app/dist ./dist
 COPY --from=opt /opt/app/public ./public
 COPY --from=opt /opt/app/package.json ./package.json
-COPY --from=opt /opt/app/favicon.ico ./favicon.ico
 
 EXPOSE 1337
 
